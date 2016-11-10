@@ -21,8 +21,8 @@ configure :development, :test do
   require 'pry'
 end
 configure :production do
-  $log = Logger.new('logs/production.log', 'weekly')
-  $log.level = Logger::WARN
+  $log = Logger.new(STDOUT)
+  $log.level = Logger::DEBUG
   # Spit stdout and stderr to a file during production
   # in case something goes wrong
   $stdout.reopen("logs/production.log", "w")
