@@ -10,6 +10,7 @@ end
 
 class FireLog < Sinatra::Base
   set :root, File.dirname(__FILE__)
+  set :public_folder, proc { File.join(root, 'public') }
   env = ENV['RACK_ENV'] || 'development'
 
   require './config/environments'
@@ -22,8 +23,7 @@ class FireLog < Sinatra::Base
     require file
   end
 
-  # set :public_folder => "/public", :static => true
-  set :public_folder, proc { File.join(root, 'public') }
+  
 
   get '/' do
     @title = 'Hello World'
