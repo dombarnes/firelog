@@ -49,6 +49,7 @@ GEM
     sinatra-activerecord (2.0.11)
       activerecord (>= 3.2)
       sinatra (~> 1.0)
+    sinatra-initializers (0.1.4)
     slop (3.6.0)
     thread_safe (0.3.5)
     tilt (2.0.5)
@@ -75,6 +76,7 @@ DEPENDENCIES
   shotgun
   sinatra
   sinatra-activerecord
+  sinatra-initializers
   unicorn
 
 RUBY VERSION

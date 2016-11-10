@@ -2,7 +2,7 @@ source 'https://rubygems.org/'
 ruby '2.3.1'
 # App Stack
 gem 'sinatra'
-
+gem 'sinatra-initializers'
 # Database Stack
 gem 'activerecord'
 gem 'sinatra-activerecord'

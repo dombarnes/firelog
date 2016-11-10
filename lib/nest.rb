@@ -6,7 +6,7 @@ class NestData
   attr_accessor :date, :indoor_temperature, :outdoor_temperature
 
   def initialize(params = {})
-    self.date = params.fetch(:date, Time.now)
+    self.date = params.fetch(:date, DateTime.now)
     self.indoor_temperature = params.fetch(:indoor, '')
     self.outdoor_temperature = params.fetch(:outdoor, '')
   end

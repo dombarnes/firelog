@@ -1,19 +1,23 @@
-<h1>Readings</h1>
-<table>
-<th>
-  <td>Date</td>
-  <td>Indoor</td>
-  <td>Outdoor</td>
-</th>
-<% @readings.each do |reading| %>
-<tr>
-  <td><%= reading.date.strftime('%d/%m/%Y %H:%M') %></td>
-  <td><%= reading.indoor_temperature.to_s + "&deg;C" %></td>
-  <td><%= reading.outdoor_temperature.to_s + "&deg;C" %></td>
-</tr>
-<% end %>
-</table>
-<canvas id="tempChart" width="1024" height="500"></canvas>
+<div class="col-lg-12">
+  <h1>Readings</h1>
+  <canvas id="tempChart" width="800" height="350"></canvas>
+  <table>
+  <tr>
+    <th>Date</th>
+    <th>Indoor</th>
+    <th>Outhoor</td>
+  </th>
+  <% @readings.each do |reading| %>
+  <tr>
+    <td><%= reading.date.to_datetime %></td>
+    <td><%= reading.indoor_temperature.round(1).to_s + "&deg;C" %></td>
+    <td><%= reading.outdoor_temperature.round(1).to_s + "&deg;C" %></td>
+  </tr>
+  <% end %>
+  </table>
+
+</div>
+
 <script>
     var ctx = document.getElementById("tempChart");
     var tempChart = new Chart(ctx, {
@@ -22,7 +26,7 @@
             animateScale: false
         },
         data: {
-            labels: [ "<%= @readings.map(&:date).join("\", \"") %>" ],
+            labels: [ "<%= @readings.map {|d| d.date.to_datetime}.join("\", \"") %>" ],
             datasets: [{
                 label: 'Indoor',
                 backgroundColor: 'rgba( 255, 96, 120, 1)',
@@ -60,6 +64,10 @@
                 scaleLabel: {
                   display: true,
                   labelString: 'Date'
+                },
+                ticks: {
+                  minRotation: 45,
+                  maxRotation: 45
                 }
               }],
               yAxes: [{

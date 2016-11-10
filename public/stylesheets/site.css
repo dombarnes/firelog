@@ -1,0 +1,29 @@
+body {
+  font-family: Helvetica, arial, san-serif;
+  font-size: 1.3em;
+}
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+table {
+  border: 1px solid rgb(116, 226, 255);
+  border-collapse: collapse;
+}
+th {
+  border: 1px solid rgb(116, 226, 255);
+  padding: 2px 4px;
+}
+tr {
+  border: 1px solid rgb(116, 226, 255);
+
+}
+td {
+  border: 1px solid rgb(116, 226, 255);
+  padding: 2px 12px;
+}
+th:first-child, td:first-child {
+  padding-left: 0;
+  padding-right: 24px;
+  text-align: left;
+}
