@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  host: localhost
+  encoding: utf8
+  min_messages: warning
+  pool: <%= Integer(ENV.fetch("DB_POOL", 5)) %>
+  reaping_frequency: <%= ENV.fetch("DB_REAPING_FREQUENCY", 10) %>
+  timeout: 5000
+
+development: 
+  <<: *default
+  database: firelog_development
+  username: domster83
+  password: 
+
+production:
+  <<: *default
+  url:  <%= ENV.fetch("DATABASE_URL", "") %>
+  min_messages: warning
+  pool: <%= [Integer(ENV.fetch("MAX_THREADS", 5)), Integer(ENV.fetch("DB_POOL", 5))].max %>
+  timeout: 5000
