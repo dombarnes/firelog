@@ -1,6 +1,6 @@
 class ReadingController < ApplicationController
   get '/' do
-    @readings = Reading.all
+    @readings = Reading.yesterday.all
     erb :'readings/index'
   end
 
