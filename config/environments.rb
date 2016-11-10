@@ -7,6 +7,7 @@ require 'yaml'
 configure do
   set :root, File.expand_path('../', __FILE__)
   enable :static
+  enable :sessions
   set :public_folder, proc { File.join(root, '../', 'public') }
   set :views, 'app/views'
   set :post_code, ENV['POSTCODE']
@@ -23,6 +24,7 @@ end
 configure :development, :test do
   require 'pry'
 end
+
 configure :production do
   $log = Logger.new(STDOUT)
   $log.level = Logger::DEBUG

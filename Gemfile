@@ -1,7 +1,7 @@
 source 'https://rubygems.org/'
 ruby '2.3.1'
 # App Stack
-gem 'sinatra', '~> 1.4'
+gem 'sinatra'
 
 # Database Stack
 gem 'activerecord'
@@ -12,8 +12,9 @@ gem 'dotenv'
 gem 'nest_thermostat'
 gem 'httparty'
 gem 'unicorn'
+gem 'rake'
+
 group :development do
-  gem 'rake', '~> 10.0'
   gem 'minitest', '~> 5.2'
   gem 'rack-test', '~> 0.6'
   gem 'shotgun'
