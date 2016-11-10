@@ -1,8 +1,10 @@
 require 'zlib'
 require 'sinatra'
+require 'logger'
 
 configure :development do
  set :show_exceptions, true
+ $log = Logger.new('logs/development.log','weekly')
 end
 
 configure :development, :test do
