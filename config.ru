@@ -1,7 +1,6 @@
 # require 'sinatra/base'
 require './app'
-
-Dir.glob('./app/{helpers,controllers,models}/*.rb').each { |file| require file }
+Dir['./app/{helpers,controllers,models}/*.rb'].each { |file| require file }
 
 # GZip compession
 use Rack::Deflater
