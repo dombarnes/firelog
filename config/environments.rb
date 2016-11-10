@@ -4,15 +4,28 @@ require 'logger'
 require 'erb'
 require 'yaml'
 
+configure do
+  set :views, 'app/views'
+  set :post_code, ENV['POSTCODE']
+  set :nest_email, ENV['NEST_EMAIL']
+  set :nest_password, ENV['NEST_PASS']
+end
+
 configure :development do
   set :show_exceptions, true
-  $log = Logger.new('logs/development.log', 'weekly')
+  $log = Logger.new(STDOUT)
+  $log = Logger::DEBUG
 end
 
 configure :development, :test do
   require 'pry'
 end
-
-configure do
-  set :views, 'app/views'
+configure :production do
+  $log = Logger.new('logs/production.log', 'weekly')
+  $log.level = Logger::WARN
+  # Spit stdout and stderr to a file during production
+  # in case something goes wrong
+  $stdout.reopen("logs/production.log", "w")
+  $stdout.sync = true
+  $stderr.reopen($stdout)
 end

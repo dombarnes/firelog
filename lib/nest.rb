@@ -1,5 +1,7 @@
+require './app'
 require 'nest_thermostat'
 require 'httparty'
+
 class NestData
   attr_accessor :date, :indoor_temperature, :outdoor_temperature
 
@@ -10,20 +12,23 @@ class NestData
   end
 
   def fetch_data
+    email = ENV['NEST_EMAIL']
+    pass = ENV['NEST_PASS']
+    post_code = ENV['POSTCODE']
     nest = NestThermostat::Nest.new(
-      email: ENV['NEST_EMAIL'],
-      password: ENV['NEST_PASS'],
+      email: email,
+      password: pass,
       temperature_scale: 'c'
     )
-    self.indoor_temperature = nest.current_temp if nest.present?
-    post_code = ENV['POSTCODE']
+    self.indoor_temperature = nest.current_temp if nest.present?    
     weather = HTTParty.get("https://apps-weather.nest.com/weather/v1?query=#{post_code}")
     if weather.code == 200
       outdoor_temp = weather.parsed_response[ENV['POSTCODE']]['current']['temp_c']
       self.outdoor_temperature = outdoor_temp
     else
-      $log.debug response.parsed_response
-      raise Exception, "Bad response.\n#{response.message}"
+      $log.debug "Unable to retrieve weather data: #{weather.parsed_response}"
+      $log.debug "URL: "
+      raise Exception, "Bad response [#{weather.code}] - #{weather.message}"
     end
   end
 
