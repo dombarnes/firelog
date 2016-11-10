@@ -1,21 +1,20 @@
- require 'dotenv'
+require 'dotenv'
 Dotenv.load
 
 require 'sinatra/base'
 require 'sinatra/activerecord'
 
 class FireLog < Sinatra::Base
-  set :root, File.dirname(__FILE__)
-  set :public_folder, proc { File.join(root, 'public') }
+  
   env = ENV['RACK_ENV'] || 'development'
 
   require './config/environments'
-
+  
   Dir['./lib/*.rb'].sort.each do |file|
     load file
   end
 
-  config = YAML.load(ERB.new(File.read(File.join(root, 'config/database.yml'))).result)
+  config = YAML.load(ERB.new(File.read(File.join(root, '/config/database.yml'))).result)
   ActiveRecord::Base.configurations = config
   ActiveRecord::Base.establish_connection env.to_sym
   enable :sessions

@@ -5,6 +5,9 @@ require 'erb'
 require 'yaml'
 
 configure do
+  set :root, File.expand_path('../', __FILE__)
+  enable :static
+  set :public_folder, proc { File.join(root, '../', 'public') }
   set :views, 'app/views'
   set :post_code, ENV['POSTCODE']
   set :nest_email, ENV['NEST_EMAIL']
