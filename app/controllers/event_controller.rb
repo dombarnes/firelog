@@ -1,5 +1,4 @@
 class EventController < ApplicationController
-
   # index
   get '/' do
     @events = Event.all
@@ -7,7 +6,7 @@ class EventController < ApplicationController
   end
 
   # new
-  get '/new' do 
+  get '/new' do
     @event = Event.new
     erb :'/events/new'
   end
@@ -27,8 +26,8 @@ class EventController < ApplicationController
     @event = Event.find(params[:id])
     erb :'/show'
   end
-  
-  # delete  
+
+  # delete
   delete '/:id' do
     Event.destroy(params[:id])
     if resource
@@ -37,5 +36,4 @@ class EventController < ApplicationController
       halt 404
     end
   end
-
 end

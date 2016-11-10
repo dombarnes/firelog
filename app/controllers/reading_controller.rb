@@ -1,11 +1,10 @@
 class ReadingController < ApplicationController
-
   get '/' do
     @readings = Reading.all
     erb :'readings/index'
   end
 
-  get '/new' do 
+  get '/new' do
     @reading = Reading.new
     erb :'/readings/new'
   end
@@ -28,5 +27,4 @@ class ReadingController < ApplicationController
   delete '/:id' do
     Reading.destroy(params[:id])
   end
-
 end

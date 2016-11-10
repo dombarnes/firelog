@@ -11,6 +11,5 @@ class CreateModel < ActiveRecord::Migration[5.0]
       t.string :description
       t.datetime :date
     end
-
   end
 end

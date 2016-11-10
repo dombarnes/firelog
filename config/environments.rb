@@ -5,8 +5,8 @@ require 'erb'
 require 'yaml'
 
 configure :development do
- set :show_exceptions, true
- $log = Logger.new('logs/development.log','weekly')
+  set :show_exceptions, true
+  $log = Logger.new('logs/development.log', 'weekly')
 end
 
 configure :development, :test do
