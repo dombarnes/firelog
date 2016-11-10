@@ -11,6 +11,7 @@ gem 'puma'
 gem 'dotenv'
 gem 'nest_thermostat'
 gem 'httparty'
+gem 'unicorn'
 group :development do
   gem 'rake', '~> 10.0'
   gem 'minitest', '~> 5.2'

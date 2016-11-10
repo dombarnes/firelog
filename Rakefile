@@ -1,5 +1,5 @@
-require 'sinatra/activerecord/rake'
 require './app'
+require 'sinatra/activerecord/rake'
 
 Dir['./lib/tasks/*.rake'].each { |f| load f }
 
