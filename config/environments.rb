@@ -23,9 +23,4 @@ end
 configure :production do
   $log = Logger.new(STDOUT)
   $log.level = Logger::DEBUG
-  # Spit stdout and stderr to a file during production
-  # in case something goes wrong
-  $stdout.reopen("logs/production.log", "w")
-  $stdout.sync = true
-  $stderr.reopen($stdout)
 end
