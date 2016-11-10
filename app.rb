@@ -9,7 +9,7 @@ class FireLog < Sinatra::Base
   register Sinatra::Initializers
   env = ENV['RACK_ENV'] || 'development'
   require './config/environments'
-  require ::File.expand_path('../config/initializers/time_formats', __FILE__)
+  # require ::File.expand_path('../config/initializers/time_formats', __FILE__)
 
   Dir['./lib/*.rb'].sort.each do |file|
     load file
