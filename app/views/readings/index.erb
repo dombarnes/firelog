@@ -5,13 +5,15 @@
   <tr>
     <th>Date</th>
     <th>Indoor</th>
-    <th>Outhoor</td>
+    <th>Outhoor</th>
+    <th>State</th>
   </th>
   <% @readings.each do |reading| %>
   <tr>
     <td><%= reading.date.to_datetime %></td>
     <td><%= reading.indoor_temperature.round(1).to_s + "&deg;C" %></td>
     <td><%= reading.outdoor_temperature.round(1).to_s + "&deg;C" %></td>
+    <td><%= reading.status %></td>
   </tr>
   <% end %>
   </table>
