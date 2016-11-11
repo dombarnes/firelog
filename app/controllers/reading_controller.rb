@@ -1,4 +1,5 @@
 class ReadingController < ApplicationController
+  helpers ApplicationHelpers
   get '/' do
     @readings = Reading.yesterday.all
     erb :'readings/index'

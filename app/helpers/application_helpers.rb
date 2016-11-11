@@ -10,4 +10,12 @@ module ApplicationHelpers
     end
     %(<a href="#{url}" #{attributes}>#{text}</a>)
   end
+
+  def yes_no(bool)
+    if true
+      "Yes"
+    else
+      "No"
+    end
+  end
 end
