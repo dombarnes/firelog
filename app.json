@@ -1,0 +1,38 @@
+{
+  "name": "Firelog",
+  "description": "This app collects your indoor temperature and outdoor temperature for you to track and monitor, because Nest doesn't store more than a week of data.",
+  "repository": "https://github.com/dombarnes/firelog",
+  "success_url": "/readings",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:setup db:migrate temps"
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "9.5"
+      }
+    },
+    "scheduler"
+  ],
+  "env": {
+    "NEST_EMAIL": {
+      "description": "The email address for your Nest account.",
+      "value": "yourname@example.com"
+    },
+    "NEST_PASS": {
+      "description": "The password for your Nest account",
+      "value": "password"
+    },
+    "POSTCODE": {
+      "description": "Your postcode/zipcode (used to get the outdoor temp from Nest's service).",
+      "value": "12345"
+    }
+  },
+  "keywords": [
+    "sinatra",
+    "nest",
+    "thermostat",
+    "smart home"
+  ],
+}

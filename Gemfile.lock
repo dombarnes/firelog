@@ -13,6 +13,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
+    awesome_print (1.7.0)
+    byebug (9.0.6)
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
     dotenv (2.1.1)
@@ -32,6 +34,9 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-byebug (3.4.0)
+      byebug (~> 9.0)
+      pry (~> 0.10)
     puma (3.6.0)
     rack (1.6.4)
     rack-protection (1.5.3)
@@ -51,6 +56,8 @@ GEM
       sinatra (~> 1.0)
     sinatra-initializers (0.1.4)
     slop (3.6.0)
+    spring (2.0.0)
+      activesupport (>= 4.2)
     thread_safe (0.3.5)
     tilt (2.0.5)
     tzinfo (1.2.2)
@@ -64,12 +71,14 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  awesome_print
   dotenv
   httparty
   minitest (~> 5.2)
   nest_thermostat
   pg
   pry
+  pry-byebug
   puma
   rack-test (~> 0.6)
   rake
@@ -77,6 +86,7 @@ DEPENDENCIES
   sinatra
   sinatra-activerecord
   sinatra-initializers
+  spring
   unicorn
 
 RUBY VERSION

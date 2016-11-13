@@ -19,4 +19,6 @@ group :development do
   gem 'rack-test', '~> 0.6'
   gem 'shotgun'
   gem 'pry'
+  gem 'awesome_print'
+  gem 'pry-byebug'
 end
