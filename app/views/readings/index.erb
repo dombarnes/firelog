@@ -13,7 +13,7 @@
     <td><%= reading.date.to_datetime %></td>
     <td><%= reading.indoor_temperature.round(1).to_s + "&deg;C" %></td>
     <td><%= reading.outdoor_temperature.round(1).to_s + "&deg;C" %></td>
-    <td><%= yes_no(reading.status) unless reading.status.nil? %>(<%= reading.status %>)</td>
+    <td><%= yes_no(reading.status) unless reading.status.nil? %></td>
   </tr>
   <% end %>
   </table>
