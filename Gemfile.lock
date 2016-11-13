@@ -56,8 +56,6 @@ GEM
       sinatra (~> 1.0)
     sinatra-initializers (0.1.4)
     slop (3.6.0)
-    spring (2.0.0)
-      activesupport (>= 4.2)
     thread_safe (0.3.5)
     tilt (2.0.5)
     tzinfo (1.2.2)
@@ -86,7 +84,6 @@ DEPENDENCIES
   sinatra
   sinatra-activerecord
   sinatra-initializers
-  spring
   unicorn
 
 RUBY VERSION

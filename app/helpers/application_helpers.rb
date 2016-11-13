@@ -12,7 +12,7 @@ module ApplicationHelpers
   end
 
   def yes_no(bool)
-    if true
+    if bool == true
       "Yes"
     else
       "No"
