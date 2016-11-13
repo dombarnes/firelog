@@ -1,6 +1,6 @@
 {
   "name": "Firelog",
-  "description": "This app collects your indoor temperature and outdoor temperature for you to track and monitor, because Nest doesn't store more than a week of data.",
+  "description": "This app collects your indoor temperature and outdoor temperature for you to track and monitor.",
   "repository": "https://github.com/dombarnes/firelog",
   "success_url": "/readings",
   "scripts": {
