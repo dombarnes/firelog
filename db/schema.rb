@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20161111171557) do
     t.datetime "date"
     t.decimal  "outdoor_temperature"
     t.decimal  "indoor_temperature"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.boolean  "status"
   end
 

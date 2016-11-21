@@ -1,13 +1,12 @@
-require 'zlib'
+require './app'
 require 'sinatra'
-require 'logger'
-require 'erb'
 require 'yaml'
 
 configure do
   set :root, File.expand_path('../', __FILE__)
   enable :static
   enable :sessions
+  set :session_secret, ENV['RACK_SECRET']
   set :public_folder, proc { File.join(root, '../', 'public') }
   set :views, 'app/views'
   set :post_code, ENV['POSTCODE']
@@ -19,10 +18,6 @@ configure :development do
   set :show_exceptions, true
   $log = Logger.new(STDOUT)
   $log = Logger::DEBUG
-end
-
-configure :development, :test do
-  require 'pry'
 end
 
 configure :production do

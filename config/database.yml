@@ -13,6 +13,13 @@ development:
   username: domster83
   password: 
 
+test: 
+  <<: *default
+  database: firelog_test
+  adapter: postgresql
+  username: domster83
+  password: 
+
 production:
   <<: *default
   url:  <%= ENV.fetch("DATABASE_URL", "") %>

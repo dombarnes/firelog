@@ -5,16 +5,16 @@ require 'date'
 require 'dotenv'
 Dotenv.load
 
-# require 'active_support'
 
 class TrueClass; def to_i; 1; end; end
 class FalseClass; def to_i; 0; end; end
+
 class FireLog < Sinatra::Base
   register Sinatra::Initializers
   env = ENV['RACK_ENV'] || 'development'
-  require './config/environments'
-  # require ::File.expand_path('../config/initializers/time_formats', __FILE__)
 
+  require './config/environment'
+    
   Dir['./lib/*.rb'].sort.each do |file|
     load file
   end

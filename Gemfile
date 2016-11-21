@@ -10,15 +10,18 @@ gem 'pg'
 gem 'nest_thermostat'
 gem 'httparty'
 gem 'unicorn'
-gem 'rake'
 gem 'logger'
 gem 'dotenv'
 
 group :development do
-  gem 'minitest', '~> 5.2'
-  gem 'rack-test', '~> 0.6'
+  gem 'rake'
   gem 'shotgun'
   gem 'pry'
   gem 'awesome_print'
   gem 'pry-byebug'
+end
+
+group :development, :test do 
+  gem 'rack-test', '~> 0.6'
+  gem 'rspec'
 end
