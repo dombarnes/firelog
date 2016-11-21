@@ -12,9 +12,9 @@ gem 'httparty'
 gem 'unicorn'
 gem 'rake'
 gem 'logger'
+gem 'dotenv'
 
 group :development do
-  gem 'dotenv'
   gem 'minitest', '~> 5.2'
   gem 'rack-test', '~> 0.6'
   gem 'shotgun'
