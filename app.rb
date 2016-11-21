@@ -1,6 +1,3 @@
-require 'dotenv'
-Dotenv.load
-
 require 'sinatra/base'
 require 'sinatra/activerecord'
 require 'sinatra-initializers'
