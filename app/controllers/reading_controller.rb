@@ -1,7 +1,21 @@
 class ReadingController < ApplicationController
+  require_relative './application_controller.rb'
   helpers ApplicationHelpers
+
   get '/' do
-    @readings = Reading.yesterday.all
+    puts "#{params[:days]} #{params[:start]} #{params[:end]}"
+    if params[:days]
+      @start = params[:days].to_i.days.ago
+      @end = DateTime.now
+    elsif params[:start] && params[:end]
+      @end = DateTime.parse(params[:end])
+      @start = DateTime.parse(params[:start])
+    else 
+      @start = DateTime.now - 1.days
+      @end = DateTime.now
+    end
+    puts "From #{@start} to #{@end}"
+    @readings = Reading.where(date: @start...@end)
     erb :'readings/index'
   end
 
@@ -15,7 +29,7 @@ class ReadingController < ApplicationController
     erb :'/readings/show'
   end
 
-  post '/' do
+  post '/new' do
     puts params[:reading]
     @reading = Reading.new(params)
     if @reading.save!

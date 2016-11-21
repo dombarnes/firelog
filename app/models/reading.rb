@@ -5,7 +5,5 @@ class Reading < ActiveRecord::Base
 
   default_scope { order(date: :asc) }
   scope :yesterday, -> { where date: 1.day.ago..DateTime.now }
-  scope :last_week, -> { where date: 1.week.ago..DateTime.now }
-
-  
+  scope :last_week, -> { where date: 1.week.ago..DateTime.now }  
 end

@@ -1,4 +1,5 @@
 class EventController < ApplicationController
+  require_relative './application_controller.rb'
   # index
   get '/' do
     @events = Event.all

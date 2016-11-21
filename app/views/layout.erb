@@ -6,10 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
   <link rel="stylesheet" href="/stylesheets/site.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="/stylesheets/bootstrap-datepicker.css"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
+  <script src="/javascripts/bootstrap.min.js"></script>
+  <script src="/javascripts/bootstrap-datepicker.js"></script>
+  <script src="/javascripts/app.js"></script>
 </head>
 <body>
   <div class="wrapper">
+    <h1><%= link_to 'Firelog', '/' %></h1>
+    <nav class="navbar">
+      <ul>
+        <li><%= link_to 'Readings', '/readings' %>
+      </ul>
+    </nav>
     <div class="row">
       <%= yield %>
     </div>
@@ -19,4 +30,3 @@
     </footer>
   </div>
 </body>
-

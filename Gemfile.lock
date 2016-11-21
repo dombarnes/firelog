@@ -23,6 +23,7 @@ GEM
       multi_xml
     i18n (0.7.0)
     kgio (2.10.0)
+    logger (1.2.8)
     method_source (0.8.2)
     minitest (5.9.1)
     multi_json (1.12.1)
@@ -37,7 +38,6 @@ GEM
     pry-byebug (3.4.0)
       byebug (~> 9.0)
       pry (~> 0.10)
-    puma (3.6.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -72,12 +72,12 @@ DEPENDENCIES
   awesome_print
   dotenv
   httparty
+  logger
   minitest (~> 5.2)
   nest_thermostat
   pg
   pry
   pry-byebug
-  puma
   rack-test (~> 0.6)
   rake
   shotgun
@@ -87,7 +87,7 @@ DEPENDENCIES
   unicorn
 
 RUBY VERSION
-   ruby 2.3.1p112
+   ruby 2.3.2p217
 
 BUNDLED WITH
    1.13.6

@@ -4,6 +4,8 @@ Dotenv.load
 require 'sinatra/base'
 require 'sinatra/activerecord'
 require 'sinatra-initializers'
+require 'date'
+# require 'active_support'
 
 class FireLog < Sinatra::Base
   register Sinatra::Initializers
