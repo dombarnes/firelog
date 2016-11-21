@@ -16,6 +16,7 @@ class ReadingController < ApplicationController
     end
     puts "From #{@start} to #{@end}"
     @readings = Reading.where(date: @start...@end)
+    @temp = params[:scale] || 'C'
     erb :'readings/index'
   end
 

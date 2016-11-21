@@ -2,8 +2,13 @@ require 'sinatra/base'
 require 'sinatra/activerecord'
 require 'sinatra-initializers'
 require 'date'
+require 'dotenv'
+Dotenv.load
+
 # require 'active_support'
 
+class TrueClass; def to_i; 1; end; end
+class FalseClass; def to_i; 0; end; end
 class FireLog < Sinatra::Base
   register Sinatra::Initializers
   env = ENV['RACK_ENV'] || 'development'

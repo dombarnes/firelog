@@ -16,10 +16,25 @@
 <body>
   <div class="wrapper">
     <h1><%= link_to 'Firelog', '/' %></h1>
-    <nav class="navbar">
-      <ul>
-        <li><%= link_to 'Readings', '/readings' %>
-      </ul>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Firelog</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar">
+          <li class="dropdown">
+            <a href="/readings" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Readings <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'Last day', '/readings' %></li>
+              <li><%= link_to 'Last 3 days', '/readings?days=3' %></li>
+              <li><%= link_to 'Last week', '/readings?days=7' %></li>
+              <li><%= link_to 'Last month', '/readings?days=30' %></li>
+            </ul>
+          </li>
+        </ul>
+        </div>
+      </div>
     </nav>
     <div class="row">
       <%= yield %>

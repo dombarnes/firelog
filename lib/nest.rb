@@ -5,7 +5,7 @@ require 'logger'
 
 class NestData
   attr_accessor :date, :indoor_temperature, :outdoor_temperature, :status
-  @log = Logger.new('logs/output.log', 'weekly')
+  @@log = Logger.new(STDOUT)
 
   def initialize(params = {})
     self.date = params.fetch(:date, DateTime.now)
@@ -30,10 +30,10 @@ class NestData
     weather = HTTParty.get("https://apps-weather.nest.com/weather/v1?query=#{post_code}")
     case weather.code
     when 400...600
-      @log.debug "Stats #{weather.code} ERROR: #{weather.message}"
-      @log.debug "Headers: #{weather.headers.inspect}"
+      @@log.warn "Stats #{weather.code} ERROR: #{weather.message} #{weather.headers.inspect}"
+      @@log.warn "URL: #{weather.request.path.to_s}"
     when 200
-      @log.debug 'Status 200 OK: API responding'
+      @@log.info 'Status 200 OK: API responding'
       outdoor_temp = weather.parsed_response[ENV['POSTCODE']]['current']['temp_c']
       self.outdoor_temperature = outdoor_temp
     end
