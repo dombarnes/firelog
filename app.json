@@ -4,7 +4,7 @@
   "repository": "https://github.com/dombarnes/firelog",
   "success_url": "/readings",
   "scripts": {
-    "postdeploy": "bundle exec rake db:setup db:migrate temps"
+    "postdeploy": "bundle exec rake db:migrate temps"
   },
   "addons": [
     {
