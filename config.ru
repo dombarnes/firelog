@@ -1,12 +1,18 @@
+require 'rubygems'
+require 'bundler'
+require 'sinatra/base'
+
+Bundler.require
+
 require './app'
-Dir['./app/{helpers,controllers,models}/*.rb'].each { |file| require file }
+Dir.glob('./app/{controllers,models,helpers}/*.rb').each { 
+  |file| require file 
+}
 
 # GZip compession
 use Rack::Deflater
-use Rack::Static, urls: ['/stylesheets', '/javascripts'], root: 'public'
+use Rack::Static, urls: ['/stylesheets', '/javascripts', '/images', '/fonts'], root: 'public'
 
 map('/') { run ApplicationController }
 map('/events') { run EventController }
 map('/readings') { run ReadingController }
-
-run FireLog

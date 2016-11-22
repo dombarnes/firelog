@@ -1,8 +1,11 @@
-require './app'
-require 'nest_thermostat'
-require 'httparty'
-require 'logger'
+require 'rubygems'
+require 'bundler'
 
+Bundler.require
+
+require './app'
+
+Bundler.require
 class NestData
   attr_accessor :date, :indoor_temperature, :outdoor_temperature, :status
   @@log = Logger.new(STDOUT)

@@ -1,8 +1,7 @@
 # encoding: UTF-8
-ENV['RACK_ENV'] = 'test'
+ENV['RACK_ENV'] ||= 'test'
 
 require_relative File.join('..', 'app')
-# require_relative '../config/environment'
 require 'rspec'
 require 'rack/test'
 

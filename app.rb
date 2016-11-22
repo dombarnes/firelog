@@ -5,15 +5,12 @@ require 'date'
 require 'dotenv'
 Dotenv.load
 
-
 class TrueClass; def to_i; 1; end; end
 class FalseClass; def to_i; 0; end; end
 
 class FireLog < Sinatra::Base
   register Sinatra::Initializers
   env = ENV['RACK_ENV'] || 'development'
-
-  require './config/environment'
     
   Dir['./lib/*.rb'].sort.each do |file|
     load file
