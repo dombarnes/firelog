@@ -15,6 +15,4 @@ end
 map('/') { run ApplicationController }
 map('/events') { run EventController }
 map('/readings') { run ReadingController }
-# use ReadingController
-# use EventController
 run ApplicationController

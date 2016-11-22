@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'rack/test'
 
 describe 'Readings' do
   it 'displays the readings page' do
