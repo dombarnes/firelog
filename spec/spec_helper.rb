@@ -7,12 +7,17 @@ require './config/environment'
 require 'rspec'
 require 'rack/test'
 
+set :environment, :test
+
+module AppHelper
+  def app
+    FireLog.new
+  end
+end
+
 RSpec.configure do |config|
   config.include Rack::Test::Methods
-
-  def app
-    FireLog
-  end
+  config.include AppHelper
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true

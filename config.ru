@@ -3,8 +3,6 @@ require './config/environment'
 #   |file| require file 
 # }
 
-# # GZip compession
-# use Rack::Deflater
 use Rack::Static, urls: ['/stylesheets', '/javascripts', '/images', '/fonts'], root: 'public'
 
 if ActiveRecord::Migrator.needs_migration?

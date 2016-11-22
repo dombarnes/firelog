@@ -2,12 +2,11 @@ class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   helpers ApplicationHelpers
 
-  set :views, Proc.new { File.join(root, "../views/") }
-  set :method_override, true
-  set :public_folder, proc { File.join(root, '/public') }
-
-  enable :sessions
-  set :session_secret, ENV['RACK_SECRET']
+  configure do
+    set :views, Proc.new { File.join(root, "../views/") }
+    set :method_override, true
+    set :public_folder, proc { File.join(root, '/public') }
+  end
 # include all ERB files in app/views 
   # set :views, File.expand_path('../../views', __FILE__)
   # configure do
