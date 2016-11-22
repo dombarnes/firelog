@@ -12,9 +12,9 @@ gem 'httparty'
 gem 'unicorn'
 gem 'logger'
 gem 'dotenv'
+gem 'rake'
 
 group :development do
-  gem 'rake'
   gem 'shotgun'
   gem 'pry'
   gem 'awesome_print'

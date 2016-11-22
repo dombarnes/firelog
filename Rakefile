@@ -16,5 +16,9 @@ task :temps do
   Reading.create(data.to_hash)
   puts '✅ Data saved'
 end
+desc 'run Rspec specs'
+task :test do
+  sh 'bundle exec rspec spec'
+end
 
 task default: :test
