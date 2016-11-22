@@ -9,4 +9,4 @@ map('/') { run ApplicationController }
 map('/events') { run EventController }
 map('/readings') { run ReadingController }
 
-run Sinatra::Application
+run FireLog

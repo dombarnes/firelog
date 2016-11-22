@@ -26,7 +26,7 @@ class FireLog < Sinatra::Base
   (Dir['./app/helpers/*.rb'].sort + Dir['./app/models/**/*.rb'].sort + Dir['./app/controllers/*/*.rb'].sort).each do |file|
     require file
   end
-
+  
   get '/' do
     @title = 'Hello World'
     erb :index

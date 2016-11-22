@@ -1,15 +1,18 @@
 # encoding: UTF-8
 ENV['RACK_ENV'] = 'test'
 
-require 'rack/test'
+require_relative File.join('..', 'app')
+# require_relative '../config/environment'
 require 'rspec'
-# require 'bundler'
-
-require "./config/environment"
+require 'rack/test'
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
-  
+
+  def app
+    FireLog
+  end
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end 
@@ -32,17 +35,3 @@ RSpec.configure do |config|
   config.order = :random
   Kernel.srand config.seed
 end
-
-describe 'Firelog' do
-  include Rack::Test::Methods
-  def app
-    Sinatra::Application
-  end
-
-  it "returns a 200 status code" do
-    get '/' do
-      expect(last_response).to be_ok
-    end
-  end
-end
-require_relative '../app.rb'

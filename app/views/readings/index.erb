@@ -22,7 +22,6 @@
   </tr>
   <% end %>
   </table>
-
 </div>
 
 <script>
@@ -60,7 +59,7 @@
                 label: 'State',
                 type: 'line',
                 backgroundColor: 'rgba(  234, 234, 234, 0.8)',
-                borderColor:     'rgba(  234, 234, 234, 0.8)',
+                borderColor:     'rgba(  234, 234, 234, 1)',
                 data: [ "<%= @readings.map(&:status).map(&:to_i).join("\", \"") %>" ],
                 yAxisID: 'B',
                 borderWidth: 1,
@@ -114,9 +113,11 @@
                   display: true,
                   labelString: "State",
                 },
+                stepped: true,
                 ticks: {
                   max: 1,
-                  min: 0
+                  min: 0,
+                  stepSize: 1                  
                 }
               }
               ]

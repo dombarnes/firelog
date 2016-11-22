@@ -91,7 +91,7 @@ DEPENDENCIES
   pg
   pry
   pry-byebug
-  rack-test (~> 0.6)
+  rack-test
   rake
   rspec
   shotgun

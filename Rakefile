@@ -1,7 +1,11 @@
 require './app'
 require 'sinatra/activerecord/rake'
-
+require 'rspec/core/rake_task'
 Dir['./lib/tasks/*.rake'].each { |f| load f }
+
+RSpec::Core::RakeTask.new :specs do |task|
+  task.pattern = Dir['spec/**/*_spec.rb']
+end
 
 namespace :db do
   task :load_config do
@@ -16,9 +20,5 @@ task :temps do
   Reading.create(data.to_hash)
   puts '✅ Data saved'
 end
-desc 'run Rspec specs'
-task :test do
-  sh 'bundle exec rspec spec'
-end
 
-task default: :test
+task :default => ['specs']
