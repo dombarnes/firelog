@@ -7,16 +7,17 @@ gem 'sinatra-initializers'
 gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'pg'
+gem 'require_all'
 gem 'nest_thermostat'
 gem 'httparty'
 gem 'unicorn'
 gem 'logger'
 gem 'dotenv'
 gem 'rake'
+gem 'pry'
 
 group :development do
   gem 'shotgun'
-  gem 'pry'
   gem 'awesome_print'
   gem 'pry-byebug'
 end

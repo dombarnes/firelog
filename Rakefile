@@ -1,10 +1,15 @@
-require './app'
+require './config/environment'
 require 'sinatra/activerecord/rake'
 require 'rspec/core/rake_task'
+
 Dir['./lib/tasks/*.rake'].each { |f| load f }
 
 RSpec::Core::RakeTask.new :specs do |task|
   task.pattern = Dir['spec/**/*_spec.rb']
+end
+
+task :console do
+  Pry.start
 end
 
 namespace :db do

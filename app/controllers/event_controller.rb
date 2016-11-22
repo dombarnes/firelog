@@ -1,19 +1,19 @@
 class EventController < ApplicationController
-  require_relative './application_controller.rb'
+  # require_relative './application_controller.rb'
   # index
-  get '/' do
+  get '/events' do
     @events = Event.all
     erb :'events/index'
   end
 
   # new
-  get '/new' do
+  get '/events/new' do
     @event = Event.new
     erb :'/events/new'
   end
 
   # create
-  post '/new' do
+  post '/events/new' do
     @event = Event.new(params[:event])
     if @event.save?
       redirect '/events'
@@ -23,13 +23,13 @@ class EventController < ApplicationController
   end
 
   # show
-  get '/:id' do
+  get '/events/:id' do
     @event = Event.find(params[:id])
     erb :'/show'
   end
 
   # delete
-  delete '/:id' do
+  delete '/events/:id' do
     Event.destroy(params[:id])
     if resource
       resource.destroy
@@ -37,4 +37,5 @@ class EventController < ApplicationController
       halt 404
     end
   end
+
 end
