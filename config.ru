@@ -7,7 +7,16 @@ if ActiveRecord::Migrator.needs_migration?
 end
 # use Rack::MethodOverride
 
-map('/') { run ApplicationController }
-map('/events') { run EventController }
-map('/readings') { run ReadingController }
-run ApplicationController
+map '/' do
+  run ApplicationController
+end
+
+map '/events' do
+  run EventController
+end
+
+map '/readings' do
+  run ReadingController
+end
+
+run Sinatra::Application

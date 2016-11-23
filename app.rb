@@ -17,7 +17,11 @@ class FireLog < Sinatra::Base
     enable :sessions
     set :session_secret, ENV['RACK_SECRET']
   end
-  
+
+  configure :production, :development do
+    enable :logging
+  end
+
   config = YAML.load(ERB.new(File.read(File.join(root, '/config/database.yml'))).result)
   ActiveRecord::Base.configurations = config
   ActiveRecord::Base.establish_connection env.to_sym
