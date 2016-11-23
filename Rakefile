@@ -1,6 +1,7 @@
 require './config/environment'
 require 'sinatra/activerecord/rake'
 require './app'
+
 begin
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new(:spec)
@@ -17,7 +18,6 @@ task :environment do
   require File.expand_path('config/environment', File.dirname(__FILE__))
 end
 
-
 namespace :db do
   task :load_config do
     require './app'
@@ -25,7 +25,7 @@ namespace :db do
 end
 
 desc 'Fetches Nest temp and current temperature'
-task :temps => :environment do
+task :temps do
   data = NestData.new
   data.fetch_data
   Reading.create(data.to_hash)
