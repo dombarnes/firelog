@@ -1,6 +1,7 @@
 class ReadingController < ApplicationController
   helpers ApplicationHelpers
-
+  require_relative './application_controller.rb'
+  
   get '/' do
     # puts "#{params[:days]} #{params[:start]} #{params[:end]}"
     if params[:days]
