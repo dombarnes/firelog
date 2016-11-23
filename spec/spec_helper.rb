@@ -13,7 +13,7 @@ set :environment, :test
 
 module AppHelper
   def app
-    FireLog
+    FireLog.new
   end
 end
 
