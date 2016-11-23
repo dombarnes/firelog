@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-require_relative '../app'
+require_relative '../config/environment'
 require 'rake'
 Rake.application.run

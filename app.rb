@@ -11,7 +11,7 @@ class FireLog < Sinatra::Base
 
   configure do
     set :root, File.expand_path('./')
-    set :views, Proc.new { File.join(root, "app/views/") }
+    set :views, proc { File.join(root, 'app/views/') }
     set :method_override, true
     set :public_folder, proc { File.join(root, '/public') }
     enable :sessions
@@ -25,15 +25,11 @@ class FireLog < Sinatra::Base
   config = YAML.load(ERB.new(File.read(File.join(root, '/config/database.yml'))).result)
   ActiveRecord::Base.configurations = config
   ActiveRecord::Base.establish_connection env.to_sym
-    
+
   Dir['./lib/*.rb'].sort.each do |file|
     load file
   end
 
-  (Dir['./app/helpers/*.rb'].sort + Dir['./app/models/**/*.rb'].sort + Dir['./app/controllers/*/*.rb'].sort).each do |file|
-    require file
-  end
-  
   get '/' do
     @title = 'Hello World'
     erb :index

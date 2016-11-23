@@ -1,4 +1,8 @@
-require './config/environment'
+require_relative './config/environment'
+
+Dir.glob('./app/{models,helpers,extensions,controllers}/*.rb').each {  |file| 
+  require file
+}
 
 use Rack::Static, urls: ['/stylesheets', '/javascripts', '/images', '/fonts'], root: 'public'
 
@@ -8,15 +12,15 @@ end
 # use Rack::MethodOverride
 
 map '/' do
-  run ApplicationController
+  use ApplicationController
 end
 
 map '/events' do
-  run EventController
+  use EventController
 end
 
 map '/readings' do
-  run ReadingController
+  use ReadingController
 end
 
-run Sinatra::Application
+run ApplicationController

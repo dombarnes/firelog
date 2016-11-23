@@ -11,4 +11,9 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :index
   end
+
+  get '/temps' do
+    %x[`rake temps`]
+    redirect '/readings'
+  end
 end
