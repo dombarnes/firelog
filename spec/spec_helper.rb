@@ -6,18 +6,21 @@ require './config/environment'
 
 require 'rspec'
 require 'rack/test'
+require 'capybara'
+require 'capybara/dsl'
 
 set :environment, :test
 
 module AppHelper
   def app
-    FireLog.new
+    FireLog
   end
 end
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
   config.include AppHelper
+  config.include Capybara::DSL
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true

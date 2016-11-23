@@ -25,4 +25,5 @@ end
 group :development, :test do 
   gem 'rack-test'
   gem 'rspec'
+  gem 'capybara'
 end

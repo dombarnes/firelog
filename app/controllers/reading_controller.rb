@@ -1,5 +1,4 @@
 class ReadingController < ApplicationController
-  # require_relative './application_controller.rb'
   helpers ApplicationHelpers
 
   get '/' do
