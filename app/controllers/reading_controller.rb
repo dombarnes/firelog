@@ -1,16 +1,15 @@
 class ReadingController < ApplicationController
   helpers ApplicationHelpers
   require_relative './application_controller.rb'
-  
+
   get '/' do
-    # puts "#{params[:days]} #{params[:start]} #{params[:end]}"
     if params[:days]
       @start = params[:days].to_i.days.ago
       @end = DateTime.now
     elsif params[:start] && params[:end]
       @end = DateTime.parse(params[:end])
       @start = DateTime.parse(params[:start])
-    else 
+    else
       @start = DateTime.now - 1.days
       @end = DateTime.now
     end
