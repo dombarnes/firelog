@@ -19,7 +19,7 @@
     </th>
     <% @readings.each do |reading| %>
     <tr>
-      <td><%= reading.date.to_datetime %></td>
+      <td><%= reading.date.strftime('%d-%b %H:%M') %></td>
       <td><%= reading.indoor_temperature.round(1).to_s %></td>
       <td><%= reading.outdoor_temperature.round(1).to_s %></td>
       <td><%= yes_no(reading.status) unless reading.status.nil? %></td>
