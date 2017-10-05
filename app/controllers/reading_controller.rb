@@ -13,7 +13,8 @@ class ReadingController < ApplicationController
       @start = DateTime.now - 1.days
       @end = DateTime.now
     end
-    @readings = Reading.where(date: @start...@end)
+    # @readings = Reading.where(date: @start...@end)
+    @readings = Reading.historical
     @temp = params[:scale] || 'C'
     erb :'readings/index'
   end

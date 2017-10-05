@@ -32,4 +32,17 @@ task :temps do
   puts '✅  Data saved'
 end
 
+desc 'Trims data entries to keep within free heroku limits'
+task :trim_entries do
+  entries = Reading.historical.order(date: :desc)
+  count = 0
+  entries.each do |e|
+    if e.date.hour.odd?
+      e.delete
+      count += 1
+    end
+  end
+  puts "Deleted #{count} entries up to #{entries.last.date.strftime("%D-%m-%Y")}"
+end
+
 task default: ['specs']
