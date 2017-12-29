@@ -10,11 +10,10 @@ class ReadingController < ApplicationController
       @end = DateTime.parse(params[:end])
       @start = DateTime.parse(params[:start])
     else
-      @start = DateTime.now - 1.days
+      @start = DateTime.now - 3.days
       @end = DateTime.now
     end
-    # @readings = Reading.where(date: @start...@end)
-    @readings = Reading.historical
+    @readings = Reading.where(date: @start...@end)
     @temp = params[:scale] || 'C'
     erb :'readings/index'
   end
