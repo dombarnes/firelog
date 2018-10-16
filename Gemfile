@@ -15,7 +15,6 @@ gem 'logger'
 gem 'dotenv'
 gem 'rake'
 gem 'pry'
-gem 'rspec'
 
 group :development do
   gem 'shotgun'
@@ -24,6 +23,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'rspec', '~> 3.0'
   gem 'rack-test'
   gem 'capybara'
 end

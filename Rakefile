@@ -1,3 +1,4 @@
+require 'rubygems'
 require './config/environment'
 require 'sinatra/activerecord/rake'
 require './app'
@@ -38,11 +39,15 @@ task :trim_entries do
   count = 0
   entries.each do |e|
     if e.date.hour.odd?
+      # e.delete
+      # count += 1
+    end
+    if !(e.date.hour / 4.0).is_a? Integer
       e.delete
       count += 1
     end
   end
-  puts "Deleted #{count} entries up to #{entries.last.date.strftime("%D-%m-%Y")}"
+  puts "Deleted #{count} entries up to #{entries.last.date.strftime("%D-%m-%y")}"
 end
 
-task default: ['specs']
+task default: ['spec']
